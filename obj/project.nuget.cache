@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EPil1aF3YXDOl/tKU3BYQMXhX6svkwtat8HIjffr5gwZA3bS7dF8jHJFgjXJvAf/4xJahkBgbpGKVFS6p9aeIg==",
+  "dgSpecHash": "4ptoaVTUVpbqCthV5RQn+naUKS8CwOd1nLGV1gBC37V6UjRB44R6lA44O2mCQ69cxzIGzuTZKD8fad8+iAyXMg==",
   "success": true,
   "projectFilePath": "D:\\Workspace\\Schgakko\\Schgakko.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucia\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\lucia\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.12\\microsoft.aspnetcore.authentication.jwtbearer.6.0.12.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

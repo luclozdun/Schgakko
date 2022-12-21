@@ -30,7 +30,7 @@ namespace Schgakko.src.Security.Domain.Model.Entities
         {
             Name = company.Name;
             Image = company.Image;
-            Password = company.Password;
+            Password = BCrypt.Net.BCrypt.HashPassword(company.Password);
             Number = company.Number;
             Email = company.Email;
             RUC = company.RUC;
@@ -55,7 +55,7 @@ namespace Schgakko.src.Security.Domain.Model.Entities
 
             public CompanyBuilder WithPassword(string password)
             {
-                company.Password = password;
+                company.Password = BCrypt.Net.BCrypt.HashPassword(password);
                 return this;
             }
 

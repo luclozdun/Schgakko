@@ -25,7 +25,7 @@ namespace Schgakko.src.Security.Application.Controller
             this.companyService = companyService;
         }
 
-        [Authorize(Roles = Role.Company)]
+        [Authorize(Policy = Role.Company)]
         [HttpGet("{id}")]
         public async Task<IActionResult> FindById([FromRoute] int id)
         {
@@ -33,7 +33,7 @@ namespace Schgakko.src.Security.Application.Controller
             return result.Success ? Ok(new CompanyResponse(result.Resource)) : BadRequest(result.Message);
         }
 
-        [Authorize(Roles = Role.Company)]
+        [Authorize(Policy = Role.Company)]
         [HttpGet("info/{id}")]
         public async Task<IActionResult> FindByIdInfo([FromRoute] int id)
         {
@@ -55,7 +55,7 @@ namespace Schgakko.src.Security.Application.Controller
             return result.Success ? Ok(new CompanyResponse(result.Resource)) : BadRequest(result.Message);
         }
 
-        [Authorize(Roles = Role.Company)]
+        [Authorize(Policy = Role.Company)]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromBody] CompanyRequest request, [FromRoute] int id)
         {
@@ -70,7 +70,7 @@ namespace Schgakko.src.Security.Application.Controller
             return result.Success ? Ok(new CompanyResponse(result.Resource)) : BadRequest(result.Message);
         }
 
-        [Authorize(Roles = Role.Admin)]
+        [Authorize(Policy = Role.Admin)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove([FromRoute] int id)
         {

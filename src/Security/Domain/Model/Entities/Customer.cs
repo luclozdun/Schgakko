@@ -23,14 +23,14 @@ namespace Schgakko.src.Security.Domain.Model.Entities
             CreatedAt = DateTime.UtcNow;
         }
 
-        public void Update(Customer student)
+        public void Update(Customer customer)
         {
-            Name = student.Name;
-            LastName = student.LastName;
-            DNI = student.DNI;
-            Number = student.Number;
-            Email = student.Email;
-            Password = student.Password;
+            Name = customer.Name;
+            LastName = customer.LastName;
+            DNI = customer.DNI;
+            Number = customer.Number;
+            Email = customer.Email;
+            Password = BCrypt.Net.BCrypt.HashPassword(customer.Password);
         }
 
         public class CustomerBuilder
@@ -69,7 +69,7 @@ namespace Schgakko.src.Security.Domain.Model.Entities
 
             public CustomerBuilder WithPassword(string password)
             {
-                customer.Password = password;
+                customer.Password = BCrypt.Net.BCrypt.HashPassword(password);
                 return this;
             }
 

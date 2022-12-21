@@ -81,3 +81,4 @@ D:\Workspace\Schgakko\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 D:\Workspace\Schgakko\bin\Debug\net6.0\Scrutor.dll
 D:\Workspace\Schgakko\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 D:\Workspace\Schgakko\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\Workspace\Schgakko\bin\Debug\net6.0\BCrypt.Net-Next.dll

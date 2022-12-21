@@ -39,7 +39,9 @@ namespace Schgakko.src.Security.Infraestructure.Services
             if (company is null)
                 return new TokenResult("Invalid credentials");
 
-            if (!company.Password.Equals(password))
+            bool validPassword = BCrypt.Net.BCrypt.Verify(password, company.Password);
+
+            if (!validPassword)
                 return new TokenResult("Invalid credentials");
 
             string tknstrg = jwtProvider.Genereate(company.Id, company.Name, company.Email, Role.Company);
@@ -53,7 +55,9 @@ namespace Schgakko.src.Security.Infraestructure.Services
             if (customer is null)
                 return new TokenResult("Invalid credentials");
 
-            if (!customer.Password.Equals(password))
+            bool validPassword = BCrypt.Net.BCrypt.Verify(password, customer.Password);
+
+            if (!validPassword)
                 return new TokenResult("Invalid credentials");
 
             string tknstrg = jwtProvider.Genereate(customer.Id, customer.Name, customer.Email, Role.Customer);
