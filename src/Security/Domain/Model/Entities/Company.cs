@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Schgakko.src.Product.Domain.Model.Entities;
 using Schgakko.src.Shared.Domain.Model.Entities;
 
 namespace Schgakko.src.Security.Domain.Model.Entities
@@ -15,6 +17,9 @@ namespace Schgakko.src.Security.Domain.Model.Entities
         public string Email { get; private set; }
         public string RUC { get; private set; }
         public DateTime CreateAt { get; private set; }
+
+        [JsonIgnore]
+        public IEnumerable<Item> Items { get; private set; }
 
         private Company()
         {
