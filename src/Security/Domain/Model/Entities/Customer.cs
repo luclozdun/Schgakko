@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Schgakko.src.Order.Domain.Model.Entities;
 using Schgakko.src.Security.Domain.Result;
 using Schgakko.src.Shared.Domain.Model.Entities;
 using Schgakko.src.Shared.Domain.Model.ValueObjects;
@@ -17,6 +19,9 @@ namespace Schgakko.src.Security.Domain.Model.Entities
         public string Email { get; private set; }
         public string Password { get; private set; }
         public DateTime CreatedAt { get; private set; }
+
+        [JsonIgnore]
+        public IEnumerable<Invoice> Invoices { get; private set; }
 
         private Customer()
         {

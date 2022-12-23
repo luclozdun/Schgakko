@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Schgakko.src.Order.Domain.Repositories;
+using Schgakko.src.Order.Domain.Services;
+using Schgakko.src.Order.Infraestructure.Repositories;
+using Schgakko.src.Order.Infraestructure.Services;
 using Schgakko.src.Product.Domain.Repositories;
 using Schgakko.src.Product.Domain.Services;
 using Schgakko.src.Product.Infraestructure.Repositories;
@@ -38,19 +42,23 @@ namespace Schgakko
         {
             service.AddDbContext<DataBaseContext>(options =>
             {
-                options.UseInMemoryDatabase("asd");
+                options.UseSqlServer(configuration.GetConnectionString("FirstDB"));
             });
 
             service.AddScoped<IUnitOfWork, UnitOfWork>();
             service.AddScoped<ICompanyRepository, CompanyRepository>();
             service.AddScoped<ICustomerRepository, CustomerRepository>();
             service.AddScoped<IItemRepository, ItemRepository>();
+            service.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            service.AddScoped<IInvoiceItemRepository, InvoiceItemRepository>();
 
             service.AddScoped<ICompanyService, CompanyService>();
             service.AddScoped<IAuthenticateService, AuthenticateService>();
             service.AddScoped<ICustomerService, CustomerService>();
             service.AddScoped<IJwtProvider, JwtProvider>();
             service.AddScoped<IItemService, ItemService>();
+            service.AddScoped<IInvoiceService, InvoiceService>();
+            service.AddScoped<IInvoiceItemService, InvoiceItemService>();
 
             service.AddSwaggerGen(options =>
             {

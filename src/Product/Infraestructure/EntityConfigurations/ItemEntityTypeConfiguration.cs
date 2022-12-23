@@ -21,6 +21,7 @@ namespace Schgakko.src.Product.Infraestructure.EntityConfigurations
             builder.Property(x => x.Subtitle).HasColumnName("Subtitle");
             builder.Property(x => x.Description).HasColumnName("Description");
             builder.Property(x => x.Descount).HasColumnName("Descount");
+            builder.Property(x => x.Quantity).HasColumnName("Quantity");
             builder.Property(x => x.Price).HasColumnName("Price");
             builder.Property(x => x.CreatedAt).HasColumnName("Create_At");
             builder.Property(x => x.UpdateAt).HasColumnName("Update_At");

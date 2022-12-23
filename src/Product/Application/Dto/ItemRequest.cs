@@ -13,9 +13,10 @@ namespace Schgakko.src.Product.Application.Dto
         public string Description { get; private set; }
         public double Descount { get; private set; }
         public double Price { get; private set; }
+        public int Quantity { get; private set; }
         public int CompanyId { get; private set; }
 
-        public ItemRequest(string title, string image, string subtitle, string description, double descount, double price, int companyId)
+        public ItemRequest(string title, string image, string subtitle, string description, double descount, double price, int companyId, int quantity)
         {
             Title = title;
             Image = image;
@@ -24,6 +25,7 @@ namespace Schgakko.src.Product.Application.Dto
             Descount = descount;
             Price = price;
             CompanyId = companyId;
+            Quantity = quantity;
         }
     }
 }

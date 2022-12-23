@@ -10,7 +10,7 @@ namespace Schgakko
 
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().MigrateDataBase().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
