@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage;
 using Schgakko.src.Shared.Domain.Repositories;
 
 namespace Schgakko.src.Shared.Infraestructure.Repository
@@ -13,6 +14,11 @@ namespace Schgakko.src.Shared.Infraestructure.Repository
         public UnitOfWork(DataBaseContext context)
         {
             this.context = context;
+        }
+
+        public IDbContextTransaction Transaction()
+        {
+            return context.Database.BeginTransaction();
         }
 
         public async Task CompleteAsync()

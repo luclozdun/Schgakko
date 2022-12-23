@@ -8,11 +8,13 @@ namespace Schgakko.src.Product.Application.Dto
 {
     public class ItemResponse
     {
+        public int Id { get; private set; }
         public string Title { get; private set; }
         public string Image { get; private set; }
         public string Subtitle { get; private set; }
         public string Description { get; private set; }
         public double Descount { get; private set; }
+        public int Quantity { get; private set; }
         public double Price { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdateAt { get; private set; }
@@ -20,6 +22,7 @@ namespace Schgakko.src.Product.Application.Dto
 
         public ItemResponse(Item item)
         {
+            Id = item.Id;
             Title = item.Title;
             Image = item.Image;
             Subtitle = item.Subtitle;
@@ -29,6 +32,7 @@ namespace Schgakko.src.Product.Application.Dto
             CreatedAt = item.CreatedAt;
             UpdateAt = item.UpdateAt;
             CompanyId = item.CompanyId;
+            Quantity = item.Quantity;
         }
     }
 }

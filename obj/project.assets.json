@@ -4028,11 +4028,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Workspace\\Schgakko\\Schgakko.csproj",
+      "projectUniqueName": "D:\\Workspace\\Schgakko\\Schgakko.csproj",
       "projectName": "Schgakko",
-      "projectPath": "d:\\Workspace\\Schgakko\\Schgakko.csproj",
+      "projectPath": "D:\\Workspace\\Schgakko\\Schgakko.csproj",
       "packagesPath": "C:\\Users\\lucia\\.nuget\\packages\\",
-      "outputPath": "d:\\Workspace\\Schgakko\\obj\\",
+      "outputPath": "D:\\Workspace\\Schgakko\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lucia\\AppData\\Roaming\\NuGet\\NuGet.Config"
