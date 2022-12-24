@@ -9,6 +9,7 @@ using Schgakko.src.Product.Domain.Model.Entities;
 using Schgakko.src.Product.Domain.Result;
 using Schgakko.src.Product.Domain.Services;
 using Schgakko.src.Security.Domain.Model.Enum;
+using Schgakko.src.Shared.Application.Dto;
 using static Schgakko.src.Product.Domain.Model.Entities.Item;
 
 namespace Schgakko.src.Product.Application.Controller
@@ -23,17 +24,20 @@ namespace Schgakko.src.Product.Application.Controller
         {
             this.itemService = itemService;
         }
-        [HttpGet]
-        public async Task<IActionResult> FindAll()
+
+        [HttpGet("/page/{page}/size/{size}")]
+        public async Task<IActionResult> FindAll([FromRoute] int page, [FromRoute] int size)
         {
-            IEnumerable<Item> response = await itemService.FindAll();
+            IEnumerable<Item> data = await itemService.FindAll();
+            Pageable<Item> response = new Pageable<Item>(data, page, size);
             return Ok(response);
         }
 
-        [HttpGet("/price/{high}/{low}")]
-        public async Task<IActionResult> FindByHighAndLowPrice([FromRoute] int high, [FromRoute] int low)
+        [HttpGet("/page/{page}/size/{size}/price/{high}/{low}")]
+        public async Task<IActionResult> FindByHighAndLowPrice([FromRoute] int page, [FromRoute] int size, [FromRoute] int high, [FromRoute] int low)
         {
-            IEnumerable<Item> response = await itemService.FindByHighAndLowPrice(high, low);
+            IEnumerable<Item> data = await itemService.FindByHighAndLowPrice(high, low);
+            Pageable<Item> response = new Pageable<Item>(data, page, size);
             return Ok(response);
         }
 

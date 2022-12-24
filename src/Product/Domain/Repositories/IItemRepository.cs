@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Schgakko.src.Product.Domain.Model.Entities;
 using Schgakko.src.Product.Domain.Model.ValueObjects;
+using Schgakko.src.Shared.Domain.Model.Entities;
 
 namespace Schgakko.src.Product.Domain.Repositories
 {

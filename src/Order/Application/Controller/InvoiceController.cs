@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Schgakko.src.Order.Application.Dto;
+using Schgakko.src.Order.Domain.Model.Entities;
 using Schgakko.src.Order.Domain.Result;
 using Schgakko.src.Order.Domain.Services;
 using Schgakko.src.Security.Domain.Model.Enum;
+using Schgakko.src.Shared.Application.Dto;
 
 namespace Schgakko.src.Order.Application.Controller
 {
@@ -23,24 +25,30 @@ namespace Schgakko.src.Order.Application.Controller
         }
 
         [Authorize(Policy = Role.Admin)]
-        [HttpGet]
-        public async Task<IActionResult> FindAll()
+        [HttpGet("/page/{page}/size/{size}")]
+        public async Task<IActionResult> FindAll([FromRoute] int page, [FromRoute] int size)
         {
-            return Ok(await invoiceService.FindAll());
+            IEnumerable<Invoice> data = await invoiceService.FindAll();
+            Pageable<Invoice> response = new Pageable<Invoice>(data, page, size);
+            return Ok(response);
         }
 
         [Authorize(Policy = Role.Company)]
-        [HttpGet("/company/{id}")]
-        public async Task<IActionResult> FindAllByCompanyId([FromRoute] int id)
+        [HttpGet("/page/{page}/size/{size}/company/{id}")]
+        public async Task<IActionResult> FindAllByCompanyId([FromRoute] int page, [FromRoute] int size, [FromRoute] int id)
         {
-            return Ok(await invoiceService.FindAllByCompanyId(id));
+            IEnumerable<Invoice> data = await invoiceService.FindAllByCompanyId(id);
+            Pageable<Invoice> response = new Pageable<Invoice>(data, page, size);
+            return Ok(response);
         }
 
         [Authorize(Policy = Role.Customer)]
-        [HttpGet("/customer/{id}")]
-        public async Task<IActionResult> FindAllByCustomerId([FromRoute] int id)
+        [HttpGet("/page/{page}/size/{size}/customer/{id}")]
+        public async Task<IActionResult> FindAllByCustomerId([FromRoute] int page, [FromRoute] int size, [FromRoute] int id)
         {
-            return Ok(await invoiceService.FindAllByCustomerId(id));
+            IEnumerable<Invoice> data = await invoiceService.FindAllByCustomerId(id);
+            Pageable<Invoice> response = new Pageable<Invoice>(data, page, size);
+            return Ok(response);
         }
 
         [Authorize(Policy = Role.Customer)]
