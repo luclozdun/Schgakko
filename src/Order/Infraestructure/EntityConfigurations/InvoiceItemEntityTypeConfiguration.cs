@@ -14,8 +14,8 @@ namespace Schgakko.src.Order.Infraestructure.EntityConfigurations
         {
             builder.ToTable("invoice_items");
             builder.HasKey(x => new { x.ItemId, x.InvoiceId });
-            builder.HasOne(x => x.Item).WithMany(x => x.InvoiceItems).HasForeignKey(x => x.ItemId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.Invoice).WithMany(x => x.InvoiceItems).HasForeignKey(x => x.InvoiceId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(x => x.Item).WithMany(x => x.InvoiceItems).HasForeignKey(x => x.ItemId).OnDelete(DeleteBehavior.ClientSetNull);
+            builder.HasOne(x => x.Invoice).WithMany(x => x.InvoiceItems).OnDelete(DeleteBehavior.ClientSetNull);
             builder.Property(x => x.Name).HasColumnName("Name");
             builder.Property(x => x.Price).HasColumnName("Price");
             builder.Property(x => x.Quantity).HasColumnName("Quantity");
