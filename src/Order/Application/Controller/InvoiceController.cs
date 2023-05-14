@@ -25,7 +25,7 @@ namespace Schgakko.src.Order.Application.Controller
         }
 
         [Authorize(Policy = Role.Admin)]
-        [HttpGet("/page/{page}/size/{size}")]
+        [HttpGet("page/{page}/size/{size}")]
         public async Task<IActionResult> FindAll([FromRoute] int page, [FromRoute] int size)
         {
             IEnumerable<Invoice> data = await invoiceService.FindAll();
@@ -34,7 +34,7 @@ namespace Schgakko.src.Order.Application.Controller
         }
 
         [Authorize(Policy = Role.Company)]
-        [HttpGet("/page/{page}/size/{size}/company/{id}")]
+        [HttpGet("page/{page}/size/{size}/company/{id}")]
         public async Task<IActionResult> FindAllByCompanyId([FromRoute] int page, [FromRoute] int size, [FromRoute] int id)
         {
             IEnumerable<Invoice> data = await invoiceService.FindAllByCompanyId(id);
@@ -43,7 +43,7 @@ namespace Schgakko.src.Order.Application.Controller
         }
 
         [Authorize(Policy = Role.Customer)]
-        [HttpGet("/page/{page}/size/{size}/customer/{id}")]
+        [HttpGet("page/{page}/size/{size}/customer/{id}")]
         public async Task<IActionResult> FindAllByCustomerId([FromRoute] int page, [FromRoute] int size, [FromRoute] int id)
         {
             IEnumerable<Invoice> data = await invoiceService.FindAllByCustomerId(id);

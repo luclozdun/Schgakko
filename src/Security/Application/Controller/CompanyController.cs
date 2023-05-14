@@ -25,7 +25,6 @@ namespace Schgakko.src.Security.Application.Controller
             this.companyService = companyService;
         }
 
-        [Authorize(Policy = Role.Company)]
         [HttpGet("{id}")]
         public async Task<IActionResult> FindById([FromRoute] int id)
         {

@@ -30,14 +30,14 @@ namespace Schgakko.src.Order.Application.Controller
         }
 
         [Authorize(Policy = Role.Company)]
-        [HttpGet("/item/{id}")]
+        [HttpGet("item/{id}")]
         public async Task<IActionResult> FindAllByItemId([FromRoute] int id)
         {
             return Ok(await invoiceItemService.FindAllByItemId(id));
         }
 
         [Authorize]
-        [HttpGet("/invoice/{id}")]
+        [HttpGet("invoice/{id}")]
         public async Task<IActionResult> FindAllByInvoiceId([FromRoute] int id)
         {
             return Ok(await invoiceItemService.FindAllByInvoiceId(id));

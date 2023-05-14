@@ -9,7 +9,7 @@ using Schgakko.src.Security.Domain.Services;
 
 namespace Schgakko.src.Security.Application.Controller
 {
-    [Route("/authenticate")]
+    [Route("/authenticates")]
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
@@ -20,14 +20,14 @@ namespace Schgakko.src.Security.Application.Controller
             this.authenticateService = authenticateService;
         }
 
-        [HttpPost("/customer")]
+        [HttpPost("customer")]
         public async Task<IActionResult> AuthenticateCustomer([FromBody] AuthenticateRequest request)
         {
             TokenResult result = await authenticateService.AuthenticationCustomer(request.Email, request.Password);
             return result.Success ? Ok(result.Resource) : BadRequest(result.Message);
         }
 
-        [HttpPost("/company")]
+        [HttpPost("company")]
         public async Task<IActionResult> AuthenticateCompany([FromBody] AuthenticateRequest request)
         {
             TokenResult result = await authenticateService.AuthenticationCompany(request.Email, request.Password);

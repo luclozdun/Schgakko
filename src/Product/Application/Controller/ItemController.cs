@@ -25,7 +25,7 @@ namespace Schgakko.src.Product.Application.Controller
             this.itemService = itemService;
         }
 
-        [HttpGet("/page/{page}/size/{size}")]
+        [HttpGet("page/{page}/size/{size}")]
         public async Task<IActionResult> FindAll([FromRoute] int page, [FromRoute] int size)
         {
             IEnumerable<Item> data = await itemService.FindAll();
@@ -33,7 +33,7 @@ namespace Schgakko.src.Product.Application.Controller
             return Ok(response);
         }
 
-        [HttpGet("/page/{page}/size/{size}/price/{high}/{low}")]
+        [HttpGet("page/{page}/size/{size}/price/{high}/{low}")]
         public async Task<IActionResult> FindByHighAndLowPrice([FromRoute] int page, [FromRoute] int size, [FromRoute] int high, [FromRoute] int low)
         {
             IEnumerable<Item> data = await itemService.FindByHighAndLowPrice(high, low);
@@ -41,7 +41,7 @@ namespace Schgakko.src.Product.Application.Controller
             return Ok(response);
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> FindById([FromRoute] int id)
         {
             ItemResult result = await itemService.FindById(id);
@@ -67,7 +67,7 @@ namespace Schgakko.src.Product.Application.Controller
         }
 
         [Authorize(Policy = Role.Company)]
-        [HttpPut("/{itemId}")]
+        [HttpPut("{itemId}")]
         public async Task<IActionResult> Update([FromBody] ItemRequest request, [FromRoute] int itemId)
         {
             Item item = new ItemBuilder()
@@ -85,7 +85,7 @@ namespace Schgakko.src.Product.Application.Controller
         }
 
         [Authorize(Policy = Role.Company)]
-        [HttpDelete("/{itemId}/company/{companyId}")]
+        [HttpDelete("{itemId}/company/{companyId}")]
         public async Task<IActionResult> Remove([FromRoute] int itemId, [FromRoute] int companyId)
         {
             ItemResult result = await itemService.Remove(itemId, companyId);
